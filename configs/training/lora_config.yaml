@@ -1,0 +1,72 @@
+# QLoRA Fine-tuning Configuration
+# Model: Qwen2.5-14B-Instruct (or 7B for lower VRAM)
+# Method: QLoRA (4-bit base + FP16 LoRA adapters)
+# Target Hardware: Single RTX 4090 24G
+
+base_model:
+  name: "Qwen/Qwen2.5-14B-Instruct"
+  # Alternatives for lower VRAM:
+  # name: "Qwen/Qwen2.5-7B-Instruct"
+  # name: "meta-llama/Llama-3-8B-Instruct"
+  trust_remote_code: true
+
+qlora:
+  # 4-bit quantization for the base model
+  load_in_4bit: true
+  bnb_4bit_compute_dtype: "bfloat16"
+  bnb_4bit_quant_type: "nf4"            # NormalFloat4 — optimal for normally-distributed weights
+  bnb_4bit_use_double_quant: true       # Nested quantization saves ~0.4 GB
+
+  # LoRA adapter rank and scaling
+  r: 64                                  # Rank — higher = more capacity, more VRAM
+  lora_alpha: 128                        # Scaling factor (alpha/r = 2)
+  lora_dropout: 0.05                     # Regularization
+
+  # Target modules — all linear layers for maximum coverage
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+
+training:
+  # Three-stage curriculum
+  # Stage 1: Terminology alignment (epochs: 3)
+  # Stage 2: Slot extraction (epochs: 2)
+  # Stage 3: General dialogue mixing (epochs: 1)
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 8        # Effective batch size = 2 * 8 = 16
+  learning_rate: 2.0e-4
+  lr_scheduler_type: "cosine"
+  warmup_ratio: 0.03
+  max_seq_length: 2048
+  packing: false                         # Don't pack — each sample gets its own sequence
+
+  # Memory optimization
+  gradient_checkpointing: true
+  optim: "adamw_8bit"                    # 8-bit AdamW saves ~4 GB vs 32-bit
+  use_reentrant: false
+
+  # Logging
+  logging_steps: 10
+  save_steps: 200
+  save_total_limit: 3
+  report_to: "none"                      # "wandb" if available
+
+dataset:
+  format: "chatml"                       # Qwen2.5 uses ChatML format
+  # Data split (total ~1600 samples across 3 stages)
+  stage1_size: 500                       # Terminology alignment
+  stage2_size: 800                       # Slot extraction
+  stage3_size: 300                       # General dialogue (15-20% of total)
+  val_split: 0.05                        # 5% validation
+  shuffle: true
+  seed: 42
+
+output:
+  adapter_dir: "checkpoints/lora_adapters"
+  merged_dir: "checkpoints/merged_fp16"
+  quantized_dir: "checkpoints/awq_int4"
