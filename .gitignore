@@ -1,0 +1,54 @@
+# Model weights and checkpoints
+*.pth
+*.bin
+*.pt
+*.safetensors
+checkpoints/
+lora_adapters/
+merged_model/
+
+# Data files
+*.xlsx
+*.csv
+raw_data/
+secrets.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# Vector stores
+*.faiss
+*.pkl
+faiss_index/
+
+# Outputs
+outputs/
+logs/
+wandb/
+
+# Docker
+.docker/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project docs (not part of codebase)
+CLAUDE.md
+用于外泌体实验外包企业的agent智能客服.md
