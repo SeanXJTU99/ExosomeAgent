@@ -38,20 +38,6 @@ DEFAULT_SFT_ADAPTER: str = "checkpoints/lora_adapters/stage3"
 DEFAULT_DPO_DATA: str = "data/training/dpo_preferences.jsonl"
 DEFAULT_OUTPUT_DIR: str = "checkpoints/dpo_adapters"
 
-# Prompt template that wraps each DPO sample
-DPO_PROMPT_TEMPLATE: str = """<|im_start|>system
-You are ExoConsultant, an expert technical assistant for an exosome CRO company.
-CRITICAL RULES:
-1. Never fabricate prices, protocols, or experimental data.
-2. If information is not in your knowledge base, clearly state that.
-3. Offer to connect to human support for commercial/confidential matters.
-4. Maintain a professional, helpful tone even when refusing.<|im_end|>
-<|im_start|>user
-{prompt}<|im_end|>
-<|im_start|>assistant
-"""
-
-
 def load_dpo_dataset(filepath: str) -> Any:
     """Load DPO preference pairs from JSONL.
 

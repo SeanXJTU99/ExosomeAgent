@@ -245,8 +245,13 @@ def main() -> None:
     default_epochs: dict[int, int] = {1: 3, 2: 2, 3: 1}
     epochs: int = args.epochs if args.epochs is not None else default_epochs[args.stage]
 
-    # LR decay across stages
+    # Stage-specific LR decay
+    # Override the CLI default per stage if --learning_rate was not explicitly set
     default_lrs: dict[int, float] = {1: 2.0e-4, 2: 1.0e-4, 3: 5.0e-5}
+    if args.learning_rate == 2.0e-4:  # CLI default — apply stage-specific decay
+        effective_lr: float = default_lrs[args.stage]
+    else:
+        effective_lr = args.learning_rate
 
     train_stage(
         stage=args.stage,
@@ -254,7 +259,7 @@ def main() -> None:
         output_dir=args.output_dir,
         resume_from=args.resume_from,
         num_epochs=epochs,
-        learning_rate=args.learning_rate,
+        learning_rate=effective_lr,
     )
 
     print("\n✓ Fine-tuning pipeline complete")
