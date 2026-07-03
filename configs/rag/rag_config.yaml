@@ -1,0 +1,45 @@
+# RAG Configuration
+# Local knowledge base for exosome CRO customer service.
+# Uses bge-small-zh-v1.5 embedding + FAISS vector store, all CPU-bound
+# to leave GPU VRAM free for the LLM.
+
+embedding:
+  model_name: "BAAI/bge-small-zh-v1.5"
+  device: "cpu"                       # CPU-only to save GPU VRAM
+  normalize_embeddings: true          # L2-normalize for cosine similarity
+  batch_size: 32                      # Embedding batch size
+  max_seq_length: 512                 # Max tokens per chunk for embedding
+
+vector_store:
+  backend: "faiss"
+  index_type: "FlatIP"                # Inner Product (cosine sim with normalized vectors)
+  metric: "cosine"
+  # FlatIP is sufficient for <10k documents — no IVF/PQ overhead needed
+  persist_directory: "data/faiss_index"
+
+retrieval:
+  top_k: 2                            # Strict k=2 — keep context minimal
+  similarity_threshold: 0.5           # Minimum similarity score to include
+  max_context_chars: 1500             # Hard cap on concatenated context length
+
+chunking:
+  # Price table → QA sentence pairs
+  price_chunk:
+    strategy: "qa_sentence"
+    min_chunk_chars: 80
+    max_chunk_chars: 500
+
+  # SOP documents → markdown header-based
+  sop_chunk:
+    strategy: "markdown_header"
+    headers_to_split_on:
+      - "###"                         # Split on H3, keep H2 context
+    min_chunk_chars: 100
+    max_chunk_chars: 1500
+    keep_header_chain: true           # Prepend ancestor headers to each chunk
+
+knowledge_base:
+  # All data below is FICTIONAL and for demonstration purposes only
+  source_dir: "data/mock"
+  files:
+    - "knowledge_base.json"
