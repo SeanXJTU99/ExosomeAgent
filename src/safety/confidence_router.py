@@ -14,11 +14,8 @@ from src.agent.state import ExosomeAgentState
 
 # ─── Thresholds ─────────────────────────────────────────────────────────────
 
-# Confidence below this → trigger fallback
+# Confidence below this -> trigger fallback
 CONFIDENCE_THRESHOLD: float = 0.6
-
-# At this threshold, we still respond but flag as low-confidence
-CONFIDENCE_WARN_THRESHOLD: float = 0.8
 
 
 def check_confidence(state: ExosomeAgentState) -> str:
@@ -54,12 +51,6 @@ def check_confidence(state: ExosomeAgentState) -> str:
 
     if sample_type == "UNKNOWN":
         return "output"
-
-    # Warn zone: confidence is marginal but not fatal
-    if confidence < CONFIDENCE_WARN_THRESHOLD:
-        # Still route normally, but the state carries the warning flag
-        # for downstream nodes to adjust behavior (e.g., add disclaimer)
-        pass
 
     # Check if all business slots are filled → redirect to quote
     if (

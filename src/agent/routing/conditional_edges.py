@@ -56,8 +56,8 @@ def route_after_slot_extraction(state: ExosomeAgentState) -> str:
 
     confidence: float = state.get("confidence_score", 0.0)
 
-    # If confidence is very low, trigger fallback
-    if confidence < 0.3:
+    # If confidence is too low, trigger fallback
+    if confidence < 0.6:
         return "output"
 
     # If core commercial slots are fully populated, redirect to quote

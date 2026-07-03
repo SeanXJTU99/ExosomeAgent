@@ -141,7 +141,7 @@ def main() -> None:
         zero_point=not args.no_zero_point,
     )
 
-    print("\n✓ AWQ quantization complete")
+    print("\n[OK] AWQ quantization complete")
     print(f"  Next: serve with vLLM → src/deploy/vllm_serve.sh")
 
 
