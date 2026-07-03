@@ -1,0 +1,62 @@
+# Exosome CRO Agent — Docker Compose
+# Single-container deployment with vLLM API server + optional FastAPI gateway.
+#
+# Usage:
+#   docker compose up -d              # Start the vLLM API server
+#   docker compose logs -f            # Follow logs
+#   docker compose down               # Stop and remove
+
+version: "3.9"
+
+services:
+  vllm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: exosome-agent:latest
+    container_name: exosome-agent-vllm
+    restart: unless-stopped
+
+    # GPU access
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+    # Environment
+    environment:
+      - MODEL_PATH=/app/checkpoints/awq_int4
+      - HOST=0.0.0.0
+      - PORT=8000
+      - MAX_MODEL_LEN=8192
+      - GPU_MEMORY_UTIL=0.90
+      - MAX_NUM_SEQS=4
+      - DTYPE=auto
+
+    # Ports
+    ports:
+      - "8000:8000"
+
+    # Volumes — mount model checkpoints and data from host
+    volumes:
+      - ./checkpoints:/app/checkpoints:ro
+      - ./data:/app/data:ro
+      - ./logs:/app/logs
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "3"

@@ -1,0 +1,258 @@
+{
+  "data_notice": "ALL DATA IN THIS FILE IS FICTIONAL AND FOR DEMONSTRATION PURPOSES ONLY.",
+  "services": [
+    {
+      "service_code": "Exo-A01",
+      "service_name": "Serum Exosome Extraction + miRNA-seq",
+      "sample_type": "serum",
+      "downstream": "mirna_seq",
+      "unit_price": 800,
+      "currency": "CNY",
+      "turnaround": "15-20 business days",
+      "includes": [
+        "Exosome extraction (ultracentrifugation + density gradient)",
+        "QC: NTA + TEM + Western Blot",
+        "Small RNA library preparation",
+        "Sequencing (Illumina NovaSeq, 20M reads/sample)",
+        "Standard bioinformatics analysis"
+      ],
+      "min_volume": "1.0 mL",
+      "recommended_volume": "1.5 mL"
+    },
+    {
+      "service_code": "Exo-A02",
+      "service_name": "Serum Exosome Extraction + Total RNA-seq",
+      "sample_type": "serum",
+      "downstream": "rna_seq",
+      "unit_price": 950,
+      "currency": "CNY",
+      "turnaround": "18-22 business days",
+      "includes": [
+        "Exosome extraction (UC + density gradient)",
+        "QC: NTA + TEM + Western Blot",
+        "Ribosomal RNA depletion + strand-specific library prep",
+        "Sequencing (Illumina NovaSeq, 40M reads/sample)",
+        "Standard bioinformatics analysis"
+      ],
+      "min_volume": "1.0 mL",
+      "recommended_volume": "1.5 mL"
+    },
+    {
+      "service_code": "Exo-A03",
+      "service_name": "Serum Exosome Extraction + Label-free Proteomics",
+      "sample_type": "serum",
+      "downstream": "proteomics",
+      "unit_price": 1200,
+      "currency": "CNY",
+      "turnaround": "20-25 business days",
+      "includes": [
+        "Exosome extraction (UC + density gradient)",
+        "QC: NTA + TEM + Western Blot",
+        "Protein digestion + LC-MS/MS",
+        "Label-free quantification",
+        "Bioinformatics (GO, KEGG, PPI)"
+      ],
+      "min_volume": "1.0 mL",
+      "recommended_volume": "1.5 mL"
+    },
+    {
+      "service_code": "Exo-C01",
+      "service_name": "Cell Supernatant Exosome Extraction + miRNA-seq",
+      "sample_type": "cell_supernatant",
+      "downstream": "mirna_seq",
+      "unit_price": 700,
+      "currency": "CNY",
+      "turnaround": "15-20 business days",
+      "includes": [
+        "Exosome extraction (UC or SEC)",
+        "QC: NTA + TEM + Western Blot",
+        "Small RNA library preparation + sequencing",
+        "Standard bioinformatics analysis"
+      ],
+      "min_volume": "10 mL",
+      "recommended_volume": "50 mL"
+    },
+    {
+      "service_code": "Exo-C02",
+      "service_name": "Cell Supernatant Exosome Extraction + Total RNA-seq",
+      "sample_type": "cell_supernatant",
+      "downstream": "rna_seq",
+      "unit_price": 850,
+      "currency": "CNY",
+      "turnaround": "18-22 business days",
+      "includes": [
+        "Exosome extraction (UC or SEC)",
+        "QC: NTA + TEM + Western Blot",
+        "Total RNA-seq library prep + sequencing",
+        "Standard bioinformatics analysis"
+      ],
+      "min_volume": "10 mL",
+      "recommended_volume": "50 mL"
+    },
+    {
+      "service_code": "Exo-C03",
+      "service_name": "Cell Supernatant Exosome Extraction + Proteomics",
+      "sample_type": "cell_supernatant",
+      "downstream": "proteomics",
+      "unit_price": 1050,
+      "currency": "CNY",
+      "turnaround": "20-25 business days",
+      "includes": [
+        "Exosome extraction (UC or SEC)",
+        "QC: NTA + TEM + Western Blot",
+        "Protein digestion + LC-MS/MS",
+        "Label-free quantification",
+        "Bioinformatics (GO, KEGG, PPI)"
+      ],
+      "min_volume": "10 mL",
+      "recommended_volume": "50 mL"
+    },
+    {
+      "service_code": "Exo-U01",
+      "service_name": "Urine Exosome Extraction + miRNA-seq",
+      "sample_type": "urine",
+      "downstream": "mirna_seq",
+      "unit_price": 750,
+      "currency": "CNY",
+      "turnaround": "15-20 business days",
+      "includes": [
+        "Exosome extraction (UC + density gradient)",
+        "QC: NTA + TEM + Western Blot",
+        "Small RNA library preparation + sequencing",
+        "Standard bioinformatics analysis"
+      ],
+      "min_volume": "50 mL (before concentration)",
+      "recommended_volume": "100 mL"
+    },
+    {
+      "service_code": "Exo-F01",
+      "service_name": "Exosome Drug Loading + Functional Assay",
+      "sample_type": "cell_supernatant",
+      "downstream": "drug_delivery",
+      "unit_price": 2500,
+      "currency": "CNY",
+      "turnaround": "25-30 business days",
+      "includes": [
+        "Exosome extraction and characterization",
+        "Drug loading (electroporation or sonication)",
+        "Loading efficiency quantification",
+        "Cellular uptake assay (confocal microscopy)",
+        "Functional assay (proliferation, migration, or cytotoxicity)"
+      ],
+      "min_volume": "50 mL",
+      "recommended_volume": "100 mL"
+    },
+    {
+      "service_code": "Exo-D01",
+      "service_name": "Exosome Biomarker Discovery Panel (miRNA)",
+      "sample_type": "plasma",
+      "downstream": "biomarker",
+      "unit_price": 1500,
+      "currency": "CNY",
+      "turnaround": "20-25 business days",
+      "includes": [
+        "Exosome extraction (UC + density gradient)",
+        "QC: NTA + TEM + Western Blot",
+        "Small RNA-seq (25M reads/sample)",
+        "Differential expression analysis",
+        "ROC analysis + biomarker panel selection",
+        "qPCR validation of top candidates"
+      ],
+      "min_volume": "1.0 mL",
+      "recommended_volume": "1.5 mL"
+    },
+    {
+      "service_code": "Exo-QC01",
+      "service_name": "Exosome Characterization Package (QC Only)",
+      "sample_type": "any",
+      "downstream": "qc_only",
+      "unit_price": 300,
+      "currency": "CNY",
+      "turnaround": "5-7 business days",
+      "includes": [
+        "NTA (Nanoparticle Tracking Analysis)",
+        "TEM (Transmission Electron Microscopy)",
+        "Western Blot (CD63, CD9, CD81, TSG101, Calnexin)",
+        "BCA protein quantification",
+        "QC report with size distribution and purity assessment"
+      ],
+      "min_volume": "0.5 mL",
+      "recommended_volume": "1.0 mL"
+    }
+  ],
+  "sops": [
+    {
+      "id": "SOP-SERUM-001",
+      "title": "Serum Sample Pre-processing SOP",
+      "content": "## Serum Exosome Sample Collection and Pre-processing\n\n### Blood Collection\n1. Collect venous blood in serum separator tubes (SST, red-top).\n2. Allow clotting at room temperature for 30 minutes. Do NOT exceed 60 minutes.\n3. Centrifuge at 3,000 x g for 15 minutes at 4 degree C.\n4. Transfer supernatant (serum) to a new sterile tube.\n\n### Secondary Centrifugation\n1. Centrifuge collected serum at 3,000 x g for 10 minutes at 4 degree C.\n2. This step removes residual cells, platelets, and debris.\n3. Transfer supernatant to a new tube, leaving ~50 uL at the bottom.\n\n### Hemolysis Assessment\n1. Visually inspect for pink or red discoloration.\n2. If available, measure free hemoglobin at A414.\n3. Flag samples with Hb greater than 0.3 mg per mL.\n4. Hemolyzed samples may still be processed but will be noted in the QC report.\n\n### Storage and Shipping\n1. Aliquot serum into 0.5-1.0 mL cryovials.\n2. Label with sample ID, date, and volume.\n3. Snap-freeze in liquid nitrogen or store at -80 degree C.\n4. Ship on dry ice. Avoid freeze-thaw cycles."
+    },
+    {
+      "id": "SOP-PLASMA-001",
+      "title": "Plasma Sample Pre-processing SOP",
+      "content": "## Plasma Exosome Sample Collection and Pre-processing\n\n### Anticoagulant Selection\n1. Use EDTA (purple-top) tubes. This is the preferred anticoagulant.\n2. Citrate (blue-top) is acceptable but requires volume correction.\n3. Do NOT use heparin (green-top) — heparin interferes with RT and PCR.\n\n### Processing Timeline\n1. Process blood within 30 minutes of collection at room temperature.\n2. Delayed processing increases platelet activation and microparticle release.\n\n### Centrifugation Protocol\n1. Centrifuge at 2,500 x g for 15 minutes at 4 degree C.\n2. Transfer plasma to a new tube, avoiding the buffy coat.\n3. Centrifuge plasma at 3,000 x g for 10 minutes at 4 degree C.\n4. This removes residual platelet fragments.\n\n### Storage and Shipping\n1. Aliquot plasma into 1.0-1.5 mL cryovials.\n2. Freeze at -80 degree C within 1 hour of processing.\n3. Ship on dry ice. Document any freeze-thaw events."
+    },
+    {
+      "id": "SOP-CELL-001",
+      "title": "Cell Culture Supernatant Pre-processing SOP",
+      "content": "## Cell Culture Supernatant Exosome Sample Preparation\n\n### Cell Culture Conditions\n1. Culture cells to 70-80% confluency.\n2. Wash cells 2-3 times with PBS.\n3. Replace medium with exosome-depleted FBS medium (or serum-free medium).\n4. Condition for 24-48 hours depending on cell type and exosome production rate.\n\n### Pre-clearing\n1. Collect conditioned medium.\n2. Centrifuge at 300 x g for 10 minutes to remove cells.\n3. Centrifuge supernatant at 2,000 x g for 10-20 minutes to remove debris.\n4. Optional: filter through 0.22 um membrane to remove larger microvesicles.\n\n### Concentration (Optional)\n1. If volume exceeds 50 mL, concentrate using 100 kDa MWCO centrifugal filter.\n2. Target final volume: 1-5 mL.\n\n### Storage and Shipping\n1. Snap-freeze concentrated supernatant in liquid nitrogen.\n2. Store at -80 degree C.\n3. Ship on dry ice. Include details of conditioning time and FBS source."
+    },
+    {
+      "id": "SOP-URINE-001",
+      "title": "Urine Sample Pre-processing SOP",
+      "content": "## Urine Exosome Sample Collection and Pre-processing\n\n### Collection\n1. First morning void is preferred (most concentrated).\n2. Alternatively, collect 24-hour urine with protease inhibitors.\n3. Minimum volume: 50 mL before processing.\n\n### Pre-processing\n1. Add protease inhibitor cocktail within 30 minutes of collection.\n2. Centrifuge at 2,000 x g for 20 minutes at 4 degree C.\n3. This removes cells, bacteria, and Tamm-Horsfall protein aggregates.\n4. Filter supernatant through 0.22 um membrane.\n\n### Concentration\n1. Concentrate using 100 kDa MWCO centrifugal filter (Amicon Ultra-15).\n2. Target final volume: 1-2 mL.\n3. Measure protein concentration by BCA.\n\n### Storage and Shipping\n1. Aliquot concentrated sample into cryovials.\n2. Freeze at -80 degree C.\n3. Ship on dry ice with protease inhibitor documentation."
+    },
+    {
+      "id": "SOP-CSF-001",
+      "title": "CSF Sample Pre-processing SOP",
+      "content": "## Cerebrospinal Fluid Exosome Sample Preparation\n\n### Collection\n1. Collect CSF by lumbar puncture using standard clinical protocol.\n2. Minimum volume: 0.5 mL.\n3. Use polypropylene collection tubes — exosomes may adsorb to polystyrene.\n\n### Pre-processing\n1. Centrifuge at 2,000 x g for 10 minutes at 4 degree C within 30 minutes.\n2. Transfer supernatant to a new polypropylene tube.\n3. Optional: 0.22 um filtration.\n\n### Special Considerations\n1. CSF has very low exosome concentration. Do NOT dilute.\n2. Avoid repeated freeze-thaw cycles.\n3. Document any blood contamination (RBC count from clinical lab).\n\n### Storage and Shipping\n1. Aliquot into 0.2-0.5 mL polypropylene cryovials.\n2. Snap-freeze in liquid nitrogen.\n3. Store at -80 degree C. Ship on dry ice."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is the minimum sample volume required?",
+      "answer": "Minimum volumes vary by sample type: serum/plasma 1.0 mL, cell supernatant 10 mL, urine 50 mL before concentration, CSF 0.5 mL, saliva 2 mL. Recommended volumes are typically 50% higher to allow for technical replicates."
+    },
+    {
+      "question": "How long does the full service take?",
+      "answer": "Exosome extraction with QC takes 5-7 business days. Extraction plus miRNA-seq or RNA-seq takes 15-20 business days. Extraction plus proteomics takes 20-25 business days. Expedited processing is available for an additional fee."
+    },
+    {
+      "question": "What QC methods do you use?",
+      "answer": "Our standard QC package includes NTA (Nanoparticle Tracking Analysis) for size and concentration, TEM (Transmission Electron Microscopy) for morphology, and Western Blot for marker proteins (CD63, CD9, CD81, TSG101 positive; Calnexin negative). Additional options include BCA protein quantification, cryo-EM, and nano-flow cytometry."
+    },
+    {
+      "question": "Can I use heparin as an anticoagulant?",
+      "answer": "No. Heparin interferes with reverse transcription and PCR steps in RNA-seq workflows. Use EDTA tubes for plasma collection. Citrate is acceptable but requires volume correction. Please inform us of the anticoagulant used."
+    },
+    {
+      "question": "How do you handle hemolyzed samples?",
+      "answer": "We assess hemolysis visually and by spectrophotometry (A414) for every serum/plasma sample. Hemolyzed samples (free Hb greater than 0.3 mg/mL) will be flagged. They can still be processed, but the QC report will note potential erythrocyte miRNA contamination (miR-16, miR-451a, miR-144). We recommend excluding severely hemolyzed samples from biomarker studies."
+    },
+    {
+      "question": "What sequencing depth do you use for exosome miRNA-seq?",
+      "answer": "Standard depth is 15-20 million reads per sample on Illumina NovaSeq 6000 (SE50 or SE75). For novel miRNA discovery or low-input samples (less than 10 ng RNA), we recommend 25-30 million reads. We include synthetic spike-in controls for normalization."
+    },
+    {
+      "question": "Do you offer bioinformatics analysis?",
+      "answer": "Yes, standard bioinformatics is included in all sequencing and proteomics services. For miRNA-seq: differential expression, target prediction, and pathway enrichment. For RNA-seq: differential expression, GO/KEGG enrichment, and GSEA. For proteomics: LFQ quantification, GO/KEGG enrichment, and PPI network analysis. Custom bioinformatics pipelines are available."
+    },
+    {
+      "question": "How should I ship my samples?",
+      "answer": "All samples should be shipped on dry ice via cold-chain courier (SF Express recommended). Use sterile cryovials sealed in zip-lock bags inside insulated foam boxes. Include a printed sample manifest. Schedule pickup Monday-Wednesday to avoid weekend delays. Sample-type-specific SOPs are available upon request."
+    },
+    {
+      "question": "Do you offer academic discounts?",
+      "answer": "Yes, we offer tiered academic pricing for university and non-profit research institutions. Bulk discounts are also available: 5+ samples (5% off), 10+ samples (10% off), 20+ samples (15% off), 50+ samples (20% off). Please contact your account manager for eligibility."
+    },
+    {
+      "question": "What if my Western Blot shows no CD63 band?",
+      "answer": "Common causes include: (1) insufficient protein loading — use at least 5 ug exosome lysate; (2) under-boiling — boil at 95 degree C for 5 min in reducing buffer; (3) antibody specificity — use validated clones (Ts63 or H5C6); (4) low exosome yield — consider concentrating the sample; (5) CD63 glycosylation — the band may appear as a smear at 40-65 kDa. We probe for CD9 and CD81 simultaneously to confirm exosome presence."
+    }
+  ],
+  "bulk_discounts": [
+    {"min_samples": 5, "discount_pct": 5},
+    {"min_samples": 10, "discount_pct": 10},
+    {"min_samples": 20, "discount_pct": 15},
+    {"min_samples": 50, "discount_pct": 20}
+  ]
+}
